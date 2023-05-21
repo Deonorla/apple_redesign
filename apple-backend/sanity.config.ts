@@ -14,9 +14,9 @@ const devOnlyPlugins = [visionTool()]
 
 export default defineConfig({
   name: 'default',
-  title: 'D-apple-redesign',
+  title: 'apple-backend',
 
-  projectId: 'bukmx8yy',
+  projectId: '72dwbkzk',
   dataset: 'production',
 
   plugins: [
