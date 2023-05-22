@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <div>
       <Header />
-      <menu className="relative h-[200vh] bg-[#f7f7f7]">
+      <menu className="relative h-[200vh] bg-[#E7ECEE]">
         <LandingPage />
       </menu>
     </div>
