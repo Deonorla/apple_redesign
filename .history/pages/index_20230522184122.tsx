@@ -3,7 +3,6 @@ import { Inter } from "next/font/google";
 import Header from "@/components/Header";
 import LandingPage from "@/components/LandingPage";
 import { Tab } from "@headlessui/react";
-import { GetServerSideProps } from "next";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -54,13 +53,3 @@ export default function Home() {
     </div>
   );
 }
-
-// BACKEND CODE
-
-export const getServerSideProps: GetServerSideProps = async () => {
-  // const categories = await fetchCategories();
-
-  return {
-    props: {},
-  };
-};
