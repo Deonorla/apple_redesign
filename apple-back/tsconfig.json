@@ -13,22 +13,8 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "incremental": true,
-    "paths": {
-      "@/*": ["./*"]
-    },
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ]
+    "incremental": true
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts",
-    "apple-back/schemas/product.ts"
-  ],
+  "include": ["**/*.ts", "**/*.tsx", "schemas/product.ts"],
   "exclude": ["node_modules"]
 }

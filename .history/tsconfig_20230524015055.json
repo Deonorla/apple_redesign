@@ -28,7 +28,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "apple-back/schemas/product.ts"
+    "apple-back/schemas/product.js"
   ],
   "exclude": ["node_modules"]
 }
