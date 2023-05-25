@@ -30,7 +30,7 @@ export default function Home({ categories }: Props) {
                   key={category._id}
                   id={category._id}
                   className={({ selected }) =>
-                    `whitespace-nonwrap h-[3rem] rounded-t-lg  px-5 py-3 text-sm font-light outline-none md:px-6 md:py-2 md:text-base 
+                    `whitespace-nonwrap rounded-t-lg px-5 py-3 text-sm font-light outline-none md:px-6 md:py-2 md:text-base 
                      ${
                        selected
                          ? "borderGradient bg-[#35383C] text-white"

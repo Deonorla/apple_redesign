@@ -39,7 +39,7 @@ export default function Home({ categories }: Props) {
                     `
                   }
                 >
-                  {category.title}
+                  {category.id}
                 </Tab>
               ))}
               <Tab.List>
