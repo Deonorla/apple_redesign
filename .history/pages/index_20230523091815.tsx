@@ -1,16 +1,13 @@
 import Image from "next/image";
+import { Inter } from "next/font/google";
 import Header from "@/components/Header";
 import LandingPage from "@/components/LandingPage";
 import { Tab } from "@headlessui/react";
 import { GetServerSideProps } from "next";
-import { fetchCategories } from "@/utils/fetchCategories";
 
-interface Props {
-  categories: Category[];
-}
+const inter = Inter({ subsets: ["latin"] });
 
-export default function Home({ categories }: Props) {
-  console.log(categories);
+export default function Home() {
   return (
     <div>
       <Header />
@@ -60,12 +57,10 @@ export default function Home({ categories }: Props) {
 
 // BACKEND CODE
 
-export const getServerSideProps: GetServerSideProps<Props> = async () => {
-  const categories = await fetchCategories();
+export const getServerSideProps: GetServerSideProps = async () => {
+  // const categories = await fetchCategories();
 
   return {
-    props: {
-      categories,
-    },
+    props: {},
   };
 };
