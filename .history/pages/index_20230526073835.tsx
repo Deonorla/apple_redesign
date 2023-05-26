@@ -5,7 +5,6 @@ import { Tab } from "@headlessui/react";
 import { GetServerSideProps } from "next";
 import { fetchCategories } from "@/utils/fetchCategories";
 import { fetchProducts } from "@/utils/fetchProducts";
-import Product from "@/components/Product";
 
 interface Props {
   categories: Category[];
@@ -13,11 +12,7 @@ interface Props {
 }
 
 export default function Home({ categories, products }: Props) {
-  const showProducts = (category: number) => {
-    return products
-      .filter((product) => product.category._ref === categories[category]._id)
-      .map((product) => <Product product={product} key={product._id} />);
-  };
+  console.log(products);
   return (
     <div>
       <Header />
@@ -27,7 +22,7 @@ export default function Home({ categories, products }: Props) {
       <section className="relative z-40 -mt-[100vh] min-h-screen bg-[#1B1B1B]">
         <div className="space-y-10 py-16">
           <h1 className="text-center text-4xl font-medium tracking-wide text-white md:text-5xl">
-            Products
+            New Promos
           </h1>
 
           <Tab.Group>
@@ -51,10 +46,10 @@ export default function Home({ categories, products }: Props) {
               ))}
               <Tab.List>
                 <Tab.Panels className="mx-auto max-w-fit pb-24 pt-10 sm:px-4">
-                  <Tab.Panel className="tabPanel">{showProducts(0)}</Tab.Panel>
+                  {/* <Tab.Panel className="tabPanel">{showProducts(0)}</Tab.Panel>
                   <Tab.Panel className="tabPanel">{showProducts(1)}</Tab.Panel>
                   <Tab.Panel className="tabPanel">{showProducts(2)}</Tab.Panel>
-                  <Tab.Panel className="tabPanel">{showProducts(3)}</Tab.Panel>
+                  <Tab.Panel className="tabPanel">{showProducts(3)}</Tab.Panel> */}
                 </Tab.Panels>
               </Tab.List>
             </Tab.List>
