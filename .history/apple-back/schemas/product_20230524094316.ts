@@ -34,7 +34,7 @@ const product: SchemaTypeDefinition = {
       title: 'Category',
       name: 'category',
       type: 'reference',
-      to: [{type: 'category'}],
+      to: [{type: 'product'}],
     },
     {
       name: 'price',
