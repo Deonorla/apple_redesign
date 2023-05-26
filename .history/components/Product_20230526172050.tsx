@@ -21,8 +21,8 @@ const Product = ({ product }: Props) => {
           <p>{product.title}</p>
           <p>{product.price}</p>
         </div>
-        <div className="flex h-[3rem]  w-[3rem] flex-shrink-0 cursor-pointer items-center justify-center rounded-full  bg-gradient-to-r from-pink-500 to-violet-500 md:h-[70px] md:w-[70px]">
-          <ShoppingCartIcon className="h-[1.3rem] text-white" />
+        <div className="flex h-16  w-16 flex-shrink-0 cursor-pointer items-center justify-center rounded-full  bg-gradient-to-r from-pink-500 to-violet-500 md:h-[70px] md:w-[70px]">
+          <ShoppingCartIcon className="h-8 text-white" />
         </div>
       </div>
     </div>

@@ -1,5 +1,4 @@
 import { urlFor } from "@/sanity";
-import { ShoppingCartIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import React from "react";
 interface Props {
@@ -16,13 +15,10 @@ const Product = ({ product }: Props) => {
           height={150}
         />
       </div>
-      <div className="flex flex-1 items-center justify-between space-x-3">
-        <div className="space-y-2 text-xl text-white md:text-2xl">
+      <div>
+        <div>
           <p>{product.title}</p>
           <p>{product.price}</p>
-        </div>
-        <div className="flex h-[3rem]  w-[3rem] flex-shrink-0 cursor-pointer items-center justify-center rounded-full  bg-gradient-to-r from-pink-500 to-violet-500 md:h-[70px] md:w-[70px]">
-          <ShoppingCartIcon className="h-[1.3rem] text-white" />
         </div>
       </div>
     </div>

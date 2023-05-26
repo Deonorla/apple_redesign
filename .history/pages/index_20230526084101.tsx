@@ -37,7 +37,7 @@ export default function Home({ categories, products }: Props) {
                   key={category._id}
                   id={category._id}
                   className={({ selected }) =>
-                    `whitespace-nonwrap h-[3rem]  rounded-t-lg  px-5 py-3 text-[.7rem] font-light outline-none md:px-6 md:py-2 md:text-base 
+                    `whitespace-nonwrap h-[3rem] rounded-t-lg  px-5 py-3 text-sm font-light outline-none md:px-6 md:py-2 md:text-base 
                      ${
                        selected
                          ? "borderGradient bg-[#35383C] text-white"
@@ -49,14 +49,14 @@ export default function Home({ categories, products }: Props) {
                   {category.title}
                 </Tab>
               ))}
-            </Tab.List>
-            <Tab.List className="flex justify-center">
-              <Tab.Panels className=" mx-auto max-w-fit pb-24 pt-10 sm:px-4">
-                <Tab.Panel className="tabPanel">{showProducts(0)}</Tab.Panel>
-                <Tab.Panel className="tabPanel">{showProducts(1)}</Tab.Panel>
-                <Tab.Panel className="tabPanel">{showProducts(2)}</Tab.Panel>
-                <Tab.Panel className="tabPanel">{showProducts(3)}</Tab.Panel>
-              </Tab.Panels>
+              <Tab.List>
+                <Tab.Panels className="relative mx-auto max-w-fit pb-24 pt-10 sm:px-4">
+                  <Tab.Panel className="tabPanel">{showProducts(0)}</Tab.Panel>
+                  <Tab.Panel className="tabPanel">{showProducts(1)}</Tab.Panel>
+                  <Tab.Panel className="tabPanel">{showProducts(2)}</Tab.Panel>
+                  <Tab.Panel className="tabPanel">{showProducts(3)}</Tab.Panel>
+                </Tab.Panels>
+              </Tab.List>
             </Tab.List>
           </Tab.Group>
         </div>

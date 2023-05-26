@@ -2,8 +2,10 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["www.freeiconspng.com", "cdn.sanity.io"],
-  },
-};
+    domains:[
+      "www.freeiconspng.com"
+    ]
+  }
+}
 
-module.exports = nextConfig;
+module.exports = nextConfig

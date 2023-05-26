@@ -52,10 +52,10 @@ export default function Home({ categories, products }: Props) {
             </Tab.List>
             <Tab.List className="flex justify-center">
               <Tab.Panels className=" mx-auto max-w-fit pb-24 pt-10 sm:px-4">
-                <Tab.Panel className="tabPanel">{showProducts(0)}</Tab.Panel>
-                <Tab.Panel className="tabPanel">{showProducts(1)}</Tab.Panel>
-                <Tab.Panel className="tabPanel">{showProducts(2)}</Tab.Panel>
-                <Tab.Panel className="tabPanel">{showProducts(3)}</Tab.Panel>
+                <Tab.Panel className="">{showProducts(0)}</Tab.Panel>
+                <Tab.Panel className="">{showProducts(1)}</Tab.Panel>
+                <Tab.Panel className="">{showProducts(2)}</Tab.Panel>
+                <Tab.Panel className="">{showProducts(3)}</Tab.Panel>
               </Tab.Panels>
             </Tab.List>
           </Tab.Group>
