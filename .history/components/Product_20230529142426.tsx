@@ -19,7 +19,7 @@ const Product = ({ product }: Props) => {
       <div className="flex flex-1 items-center justify-between space-x-3">
         <div className="space-y-2 text-xl text-white md:text-2xl">
           <p className="text-[1rem]">{product.title}</p>
-          <p className="text-[.8rem]">{`$${product.price}`}</p>
+          <p className="text-[.8rem]">{`$ ${product.price}`}</p>
         </div>
         <div className="flex h-[3rem]  w-[3rem] flex-shrink-0 cursor-pointer items-center justify-center rounded-full  bg-gradient-to-r from-pink-500 to-violet-500 md:h-[70px] md:w-[70px]">
           <ShoppingCartIcon className="h-[1.3rem] text-white" />
