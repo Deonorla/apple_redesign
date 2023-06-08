@@ -13,13 +13,13 @@ interface Props {
 }
 
 const CheckoutProduct = ({ items, id }: Props) => {
-  const dispatch = useDispatch();
-  const removeItemFromCart = () => {
-    dispatch(removeFromBasket({ id }));
-    toast.error(`${items[0].title} removed from cart`, {
-      position: "bottom-center",
-    });
-  };
+  //   const dispatch = useDispatch();
+  //   const removeItemFromCart = () => {
+  //     dispatch(removeFromBasket({ id }));
+  //     toast.error(`${items[0].title} removed from cart`, {
+  //       position: "bottom-center",
+  //     });
+  //   };
 
   return (
     <div>
@@ -53,7 +53,7 @@ const CheckoutProduct = ({ items, id }: Props) => {
             />
           </h4>
           <button
-            onClick={removeItemFromCart}
+            // onClick={removeItemFromCart}
             className="text-blue-500 hover:underline"
           >
             Remove

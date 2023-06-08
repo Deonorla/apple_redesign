@@ -12,14 +12,14 @@ interface Props {
   id: string;
 }
 
-const CheckoutProduct = ({ items, id }: Props) => {
-  const dispatch = useDispatch();
-  const removeItemFromCart = () => {
-    dispatch(removeFromBasket({ id }));
-    toast.error(`${items[0].title} removed from cart`, {
-      position: "bottom-center",
-    });
-  };
+// const CheckoutProduct = ({ items, id }: Props) => {
+//   const dispatch = useDispatch();
+//   const removeItemFromCart = () => {
+//     dispatch(removeFromBasket({ id }));
+//     toast.error(`${items[0].title} removed from cart`, {
+//       position: "bottom-center",
+//     });
+//   };
 
   return (
     <div>
