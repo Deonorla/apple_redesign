@@ -9,6 +9,7 @@ import { useSelector } from "react-redux";
 
 const Cart = () => {
   const items = useSelector(selectBasketItems);
+  const basketTotal = useSelector(selectBasketTotal);
   return (
     <Link href="/checkout">
       <div className="fixed bottom-10 right-10 z-50 flex h-16 w-16 cursor-pointer items-center justify-center rounded-full bg-gray-300">
