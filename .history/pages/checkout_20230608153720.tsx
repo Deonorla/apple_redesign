@@ -1,19 +1,14 @@
 import Button from "@/components/Button";
 import CheckoutProduct from "@/components/CheckoutProduct";
 import Header from "@/components/Header";
-import {
-  selectBasketItems,
-  selectBasketTotal,
-} from "@/redux/slices/basketSlice";
+import { selectBasketItems } from "@/redux/slices/basketSlice";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import Currency from "react-currency-formatter";
 
 const checkout = () => {
   const items = useSelector(selectBasketItems);
-  const cartTotal = useSelector(selectBasketTotal);
   const router = useRouter();
   const [groupedItemsInBasket, setGroupedItemsInBasket] = useState(
     {} as { [key: string]: Product[] }
@@ -27,14 +22,14 @@ const checkout = () => {
   }, [items]);
 
   return (
-    <div className="min-h-screen overflow-hidden bg-[#E7ECEE] ">
+    <div>
       <Head>
         <title>Bag -Apple</title>
         <link rel='icon href="/favicon.ico' />
       </Head>
       <Header />
-      <main className="mx-auto max-w-5xl pb-24">
-        <div className="px-5">
+      <main>
+        <div>
           <h1 className="my-4 text-3xl font-semibold lg:text-4xl">
             {items.length > 0 ? "Review your bag" : "Your bag is empty"}
           </h1>
@@ -47,22 +42,10 @@ const checkout = () => {
           )}
         </div>
         {items.length > 0 && (
-          <div>
+          <div className="mx-5 md:mx-8">
             {Object.entries(groupedItemsInBasket).map(([key, items]) => (
               <CheckoutProduct key={key} items={items} id={key} />
             ))}
-            <div>
-              <div>
-                <div>
-                  <div>
-                    <p>Subtotal</p>
-                    <p>
-                      <Currency quantity={cartTotal} currency="USD" />
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         )}
       </main>
