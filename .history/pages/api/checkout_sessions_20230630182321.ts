@@ -25,18 +25,5 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
       },
       quantity: 1,
     }));
-    try {
-      const params: Stripe.Checkout.SessionCreateParams = {
-        payment_method_types: ["card"],
-        line_items: transformedItems,
-        payment_intent_data: {},
-        mode: "payment",
-        success_url: `${req.headers.origin}/success?session_id={CHECKOUT_SESSION_ID}`,
-        cancel_url: `${req.headers.origin}/checkout`,
-        metadata: {
-          images: JSON.stringify(items.map((item) => item.image[0].asset.url)),
-        },
-      };
-    } catch (error) {}
   }
 }
