@@ -48,7 +48,7 @@ const checkout = () => {
           )}
         </div>
         {items.length > 0 && (
-          <div className="mx-5 md:mx-8">
+          <div>
             {Object.entries(groupedItemsInBasket).map(([key, items]) => (
               <CheckoutProduct key={key} items={items} id={key} />
             ))}
@@ -102,22 +102,6 @@ const checkout = () => {
                       $0.00 due today, which includes applicable full-price
                       items, down payments, shipping, and taxes.
                     </p>
-                  </div>
-
-                  <div className="flex flex-1 flex-col items-center space-y-8 rounded-xl bg-gray-200 p-8 py-12 md:order-2">
-                    <h4 className="mb-4 flex flex-col text-xl font-semibold">
-                      Pay in full
-                      <span>
-                        <Currency quantity={cartTotal} currency="USD" />
-                      </span>
-                    </h4>
-                    <Button
-                      noIcon
-                      // loading={loading}
-                      title="Check Out"
-                      width="w-full"
-                      // onClick={createCheckoutSession}
-                    />
                   </div>
                 </div>
               </div>

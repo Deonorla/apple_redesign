@@ -48,7 +48,7 @@ const checkout = () => {
           )}
         </div>
         {items.length > 0 && (
-          <div className="mx-5 md:mx-8">
+          <div>
             {Object.entries(groupedItemsInBasket).map(([key, items]) => (
               <CheckoutProduct key={key} items={items} id={key} />
             ))}
@@ -113,10 +113,10 @@ const checkout = () => {
                     </h4>
                     <Button
                       noIcon
-                      // loading={loading}
+                      loading={loading}
                       title="Check Out"
                       width="w-full"
-                      // onClick={createCheckoutSession}
+                      onClick={createCheckoutSession}
                     />
                   </div>
                 </div>
