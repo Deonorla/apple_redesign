@@ -83,23 +83,6 @@ const checkout = () => {
                   </h4>
                 </div>
               </div>
-
-              <div className="my-14 space-y-4">
-                <h4 className="text-xl font-semibold">
-                  How would you like to check out?
-                </h4>
-                <div className="flex flex-col gap-4 md:flex-row">
-                  <div className="order-2 flex flex-1 flex-col items-center rounded-xl bg-gray-200 p-8 py-12 text-center">
-                    <h4 className="mb-4 flex flex-col text-xl font-semibold">
-                      <span>Pay Monthly</span>
-                      <span>with Apple Card</span>
-                      <span>
-                        $283.16/mo. at 0% APR <sup className="-top-1"></sup>
-                      </span>
-                    </h4>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         )}
