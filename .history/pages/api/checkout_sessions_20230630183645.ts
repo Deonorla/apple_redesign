@@ -42,14 +42,6 @@ export default async function handler(
       };
       const checkoutSession: Stripe.Checkout.Session =
         await stripe.checkout.sessions.create(params);
-      res.status(200).json(checkoutSession);
-    } catch (error) {
-      const errorMessage =
-        error instanceof Error ? error.message : "Internal server error";
-      res.status(500).json({ statusCode: 500, message: errorMessage });
-    }
-  } else {
-    res.setHeader("Allow", "POST");
-    res.status(405).end("Method Not Allowed");
+    } catch (error) {}
   }
 }
