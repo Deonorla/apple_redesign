@@ -51,14 +51,14 @@ const success = () => {
                 to this page for updates on your shipment status.
               </p>
             </div>
-            <div className="pt-3 text-sm">
-              <p className="font-medium text-gray-600">
+            <div>
+              <p className=" font-medium text-gray-600">
                 Order tracking number:
               </p>
               <p>CBK25875830</p>
             </div>
           </div>
-          <div className=" m-4 space-y-2 divide-y rounded-md border border-gray-300 p-4 lg:ml-14">
+          <div className=" m-4 divide-y divide-gray-300 rounded-md border border-gray-300 p-4 lg:ml-14">
             <p> Order updates</p>
             <p className="text-sm text-gray-600">
               You will get shipping and delivery updates via email and sms.
