@@ -1,33 +1,13 @@
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
-import {
-  CheckIcon,
-  ChevronDownIcon,
-  ChevronUpIcon,
-  ShoppingCartIcon,
-} from "@heroicons/react/24/outline";
+import React from "react";
+import { CheckIcon } from "@heroicons/react/24/outline";
 import { useRouter } from "next/router";
-import Button from "@/components/Button";
-import { useMediaQuery } from "react-responsive";
 
 const success = () => {
   const router = useRouter();
   const { session_id } = router.query;
-  const [mount, setMounted] = useState<boolean>(false);
-  const [showOrderSummary, setShowOrderSummary] = useState<boolean>(false);
-  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1024px)" });
-  const showOrderSummaryCondition = isTabletOrMobile ? showOrderSummary : true;
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  const handleShowOrderSummary = () => {
-    setShowOrderSummary(!showOrderSummary);
-  };
-
   return (
     <div>
       <Head>
@@ -84,40 +64,7 @@ const success = () => {
               You will get shipping and delivery updates via email and sms.
             </p>
           </div>
-          <div>
-            <p className="hidden lg:inline">Need help? Contact us</p>
-            {mount && (
-              <Button
-                title="Continue Shoping"
-                onClick={() => router.push("/")}
-                width={isTabletOrMobile ? "w-full" : undefined}
-                padding="py-4"
-              />
-            )}
-          </div>
         </section>
-        {mount && (
-          <section>
-            <div
-              className={`w-full ${showOrderSummaryCondition && "border-b"}`}
-            >
-              <div className="mx-auto flex max-w-xl items-center justify-between px-4 py-6">
-                <button
-                  className="flex items-center space-x-2"
-                  onClick={() => handleShowOrderSummary()}
-                >
-                  <ShoppingCartIcon className="h-6 w-6" />
-                  <p>Show order summary</p>
-                  {showOrderSummaryCondition ? (
-                    <ChevronUpIcon className="h-4 w-4" />
-                  ) : (
-                    <ChevronDownIcon className="h-4 w-4" />
-                  )}
-                </button>
-              </div>
-            </div>
-          </section>
-        )}
       </main>
     </div>
   );
