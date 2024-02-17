@@ -60,6 +60,7 @@ function Success({ products }: Props) {
               style={{ objectFit: "cover" }}
               alt=""
             />
+            ;
           </div>
         </Link>
       </header>

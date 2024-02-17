@@ -60,6 +60,7 @@ function Success({ products }: Props) {
               style={{ objectFit: "cover" }}
               alt=""
             />
+            ;
           </div>
         </Link>
       </header>
@@ -88,7 +89,7 @@ function Success({ products }: Props) {
               </p>
               <h4 className="text-lg">
                 Thank you{" "}
-                {/* {session ? session.user?.name?.split(" ")[0] : "Guest"} */}
+                {session ? session.user?.name?.split(" ")[0] : "Guest"}
               </h4>
             </div>
           </div>

@@ -30,7 +30,7 @@ function Success({ products }: Props) {
     (acc, product) => acc + product.price.unit_amount / 100,
     0
   );
-  // const { data: session } = useSession();
+  const { data: session } = useSession();
 
   useEffect(() => {
     setMounted(true);
@@ -60,6 +60,7 @@ function Success({ products }: Props) {
               style={{ objectFit: "cover" }}
               alt=""
             />
+            ;
           </div>
         </Link>
       </header>
@@ -88,7 +89,7 @@ function Success({ products }: Props) {
               </p>
               <h4 className="text-lg">
                 Thank you{" "}
-                {/* {session ? session.user?.name?.split(" ")[0] : "Guest"} */}
+                {session ? session.user?.name?.split(" ")[0] : "Guest"}
               </h4>
             </div>
           </div>
@@ -237,3 +238,11 @@ export const getServerSideProps: GetServerSideProps<Props> = async ({
     },
   };
 };
+
+<Image
+  src="https://www.freeiconspng.com/uploads/apple-icon-4.png"
+  width={200}
+  height={200}
+  style={{ objectFit: "cover" }}
+  alt=""
+/>;

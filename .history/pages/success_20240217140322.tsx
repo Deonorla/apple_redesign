@@ -3,7 +3,7 @@ import {
   ChevronDownIcon,
   ChevronUpIcon,
   ShoppingCartIcon,
-} from "@heroicons/react/24/outline";
+} from "@heroicons/react/outline";
 import { GetServerSideProps } from "next";
 import Head from "next/head";
 import Image from "next/image";
@@ -30,7 +30,7 @@ function Success({ products }: Props) {
     (acc, product) => acc + product.price.unit_amount / 100,
     0
   );
-  // const { data: session } = useSession();
+  const { data: session } = useSession();
 
   useEffect(() => {
     setMounted(true);
@@ -54,11 +54,9 @@ function Success({ products }: Props) {
         <Link href="/">
           <div className="relative ml-4 h-16 w-8 cursor-pointer transition lg:hidden">
             <Image
-              src="https://www.freeiconspng.com/uploads/apple-icon-4.png"
-              width={200}
-              height={200}
-              style={{ objectFit: "cover" }}
-              alt=""
+              src="https://rb.gy/vsvv2o"
+              layout="fill"
+              objectFit="contain"
             />
           </div>
         </Link>
@@ -69,11 +67,9 @@ function Success({ products }: Props) {
           <Link href="/">
             <div className="relative ml-14 hidden h-24 w-12 cursor-pointer transition lg:inline-flex">
               <Image
-                src="https://www.freeiconspng.com/uploads/apple-icon-4.png"
-                width={200}
-                height={200}
-                style={{ objectFit: "cover" }}
-                alt=""
+                src="https://rb.gy/vsvv2o"
+                layout="fill"
+                objectFit="contain"
               />
             </div>
           </Link>
@@ -88,7 +84,7 @@ function Success({ products }: Props) {
               </p>
               <h4 className="text-lg">
                 Thank you{" "}
-                {/* {session ? session.user?.name?.split(" ")[0] : "Guest"} */}
+                {session ? session.user?.name?.split(" ")[0] : "Guest"}
               </h4>
             </div>
           </div>
@@ -166,11 +162,9 @@ function Success({ products }: Props) {
                       <div className="relative flex h-16 w-16 items-center justify-center rounded-md border border-gray-300 bg-[#F1F1F1] text-xs text-white">
                         <div className="relative h-7 w-7 animate-bounce rounded-md">
                           <Image
-                            src="https://www.freeiconspng.com/uploads/apple-icon-4.png"
-                            width={200}
-                            height={200}
-                            style={{ objectFit: "cover" }}
-                            alt=""
+                            src="https://rb.gy/vsvv2o"
+                            layout="fill"
+                            objectFit="contain"
                           />
                         </div>
                         <div className="absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full bg-[gray] text-xs">
