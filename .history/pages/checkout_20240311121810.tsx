@@ -11,11 +11,15 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import Currency from "react-currency-formatter";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
+import Stripe from "stripe";
+import { fetchPostJSON } from "@/utils/api-helpers";
+import getStripe from "@/utils/get-stripejs";
 
 const checkout = () => {
   const items = useSelector(selectBasketItems);
   const cartTotal = useSelector(selectBasketTotal);
   const router = useRouter();
+  const [loading, setLoading] = useState<boolean>(false);
   const [groupedItemsInBasket, setGroupedItemsInBasket] = useState(
     {} as { [key: string]: Product[] }
   );
@@ -26,6 +30,28 @@ const checkout = () => {
     }, {} as { [key: string]: Product[] });
     setGroupedItemsInBasket(groupedItems);
   }, [items]);
+
+  const createCheckoutSession = async () => {
+    setLoading(true);
+    const checkoutSession: Stripe.Checkout.Session = await fetchPostJSON(
+      "/api/checkout_sessions",
+      {
+        items: items,
+      }
+    );
+    // Internal server error
+    if ((checkoutSession as any).statusCode === 500) {
+      // console.log((checkoutSession as any).message);
+      return;
+    }
+    // Redirect to checkout
+    const stripe = await getStripe();
+    const { error } = await stripe!.redirectToCheckout({
+      sessionId: checkoutSession.id,
+    });
+    console.warn(error.message);
+    setLoading(false);
+  };
 
   return (
     <div className="min-h-screen overflow-hidden bg-[#E7ECEE] ">
@@ -48,7 +74,7 @@ const checkout = () => {
           )}
         </div>
         {items.length > 0 && (
-          <div>
+          <div className="mx-5 md:mx-8">
             {Object.entries(groupedItemsInBasket).map(([key, items]) => (
               <CheckoutProduct key={key} items={items} id={key} />
             ))}
@@ -113,10 +139,10 @@ const checkout = () => {
                     </h4>
                     <Button
                       noIcon
-                      // loading={loading}
+                      loading={loading}
                       title="Check Out"
                       width="w-full"
-                      // onClick={createCheckoutSession}
+                      onClick={createCheckoutSession}
                     />
                   </div>
                 </div>

@@ -41,7 +41,7 @@ const checkout = () => {
     );
     // Internal server error
     if ((checkoutSession as any).statusCode === 500) {
-      console.log((checkoutSession as any).message);
+      // console.log((checkoutSession as any).message);
       return;
     }
     // Redirect to checkout

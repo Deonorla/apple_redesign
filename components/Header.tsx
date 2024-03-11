@@ -8,6 +8,7 @@ import {
 } from "@heroicons/react/24/outline";
 import { useSelector } from "react-redux";
 import { selectBasketItems } from "@/redux/slices/basketSlice";
+import { signIn, signOut, useSession } from "next-auth/react";
 
 const Header = () => {
   const session = false;
@@ -56,10 +57,7 @@ const Header = () => {
             height={34}
           />
         ) : (
-          <UserIcon
-            className="headerIcon"
-            //   onClick={() => signIn()}
-          />
+          <UserIcon className="headerIcon" onClick={() => signIn()} />
         )}
       </div>
     </header>
