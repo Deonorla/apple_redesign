@@ -7,10 +7,13 @@ import { fetchCategories } from "@/utils/fetchCategories";
 import { fetchProducts } from "@/utils/fetchProducts";
 import Product from "@/components/Product";
 import Cart from "@/components/Cart";
+import { getSession } from "next-auth/react";
+import type { Session } from "next-auth";
 
 interface Props {
   categories: Category[];
   products: Product[];
+  session: Session | null;
 }
 
 export default function Home({ categories, products }: Props) {
@@ -70,13 +73,17 @@ export default function Home({ categories, products }: Props) {
 
 // BACKEND CODE
 
-export const getServerSideProps: GetServerSideProps<Props> = async () => {
+export const getServerSideProps: GetServerSideProps<Props> = async (
+  context
+) => {
   const categories = await fetchCategories();
   const products = await fetchProducts();
+  const session = await getSession(context);
   return {
     props: {
       categories,
       products,
+      session,
     },
   };
 };

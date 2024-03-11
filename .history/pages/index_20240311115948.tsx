@@ -6,10 +6,14 @@ import { GetServerSideProps } from "next";
 import { fetchCategories } from "@/utils/fetchCategories";
 import { fetchProducts } from "@/utils/fetchProducts";
 import Product from "@/components/Product";
+import Cart from "@/components/Cart";
+import { getSession } from "next-auth/react";
+import type { Session } from "next-auth";
 
 interface Props {
   categories: Category[];
   products: Product[];
+  session: Session | null;
 }
 
 export default function Home({ categories, products }: Props) {
@@ -21,6 +25,8 @@ export default function Home({ categories, products }: Props) {
   return (
     <div>
       <Header />
+      <Cart />
+
       <menu className="relative h-[200vh] bg-[#f7f7f7]">
         <LandingPage />
       </menu>
@@ -37,7 +43,7 @@ export default function Home({ categories, products }: Props) {
                   key={category._id}
                   id={category._id}
                   className={({ selected }) =>
-                    `whitespace-nonwrap h-[3rem] rounded-t-lg  px-5 py-3 text-sm font-light outline-none md:px-6 md:py-2 md:text-base 
+                    `whitespace-nonwrap h-[3rem]  rounded-t-lg  px-5 py-3 text-[.7rem] font-light outline-none md:px-6 md:py-2 md:text-base 
                      ${
                        selected
                          ? "borderGradient bg-[#35383C] text-white"
@@ -49,14 +55,14 @@ export default function Home({ categories, products }: Props) {
                   {category.title}
                 </Tab>
               ))}
-              <Tab.List className="flex justify-center">
-                <Tab.Panels className=" mx-auto max-w-fit pb-24 pt-10 sm:px-4">
-                  <Tab.Panel className="tabPanel">{showProducts(0)}</Tab.Panel>
-                  <Tab.Panel className="tabPanel">{showProducts(1)}</Tab.Panel>
-                  <Tab.Panel className="tabPanel">{showProducts(2)}</Tab.Panel>
-                  <Tab.Panel className="tabPanel">{showProducts(3)}</Tab.Panel>
-                </Tab.Panels>
-              </Tab.List>
+            </Tab.List>
+            <Tab.List className="flex justify-center">
+              <Tab.Panels className=" mx-auto max-w-fit pb-24 pt-10 sm:px-4">
+                <Tab.Panel className="tabPanel">{showProducts(0)}</Tab.Panel>
+                <Tab.Panel className="tabPanel">{showProducts(1)}</Tab.Panel>
+                <Tab.Panel className="tabPanel">{showProducts(2)}</Tab.Panel>
+                <Tab.Panel className="tabPanel">{showProducts(3)}</Tab.Panel>
+              </Tab.Panels>
             </Tab.List>
           </Tab.Group>
         </div>
@@ -67,13 +73,17 @@ export default function Home({ categories, products }: Props) {
 
 // BACKEND CODE
 
-export const getServerSideProps: GetServerSideProps<Props> = async () => {
+export const getServerSideProps: GetServerSideProps<Props> = async (
+  context
+) => {
   const categories = await fetchCategories();
   const products = await fetchProducts();
+  const session = await getSession(context);
   return {
     props: {
       categories,
       products,
+      session,
     },
   };
 };
