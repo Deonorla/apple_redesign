@@ -1,10 +1,10 @@
-import {MdMenuBook} from 'react-icons/md'
+import {BiCategory} from 'react-icons/bi'
 
 export default {
   name: 'category',
   title: 'Category',
   type: 'document',
-  icon: MdMenuBook,
+  icon: BiCategory,
   fields: [
     {
       name: 'title',
