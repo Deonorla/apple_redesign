@@ -13,6 +13,6 @@ export default NextAuth({
   session: {
     strategy: "jwt",
   },
-  secret: "ytretyuiolkjhgf",
+  // secret: process.env.NEXTAUTH_SECRET,
   adapter: SanityAdapter(sanityClient),
 });
