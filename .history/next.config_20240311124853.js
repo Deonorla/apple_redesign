@@ -5,7 +5,7 @@ const nextConfig = {
     domains: [
       "www.freeiconspng.com",
       "cdn.sanity.io",
-      "lh3.googleusercontent.com",
+      "https://lh3.googleusercontent.com/",
     ],
   },
 };
