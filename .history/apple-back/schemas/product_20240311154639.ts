@@ -1,20 +1,19 @@
 import {RiMacbookLine} from 'react-icons/ri'
-import {Rule, SchemaTypeDefinition} from 'sanity'
 
-const product: SchemaTypeDefinition = {
+export default {
   name: 'product',
   title: 'Product',
   type: 'document',
   icon: RiMacbookLine,
   fields: [
     {
-      title: 'Title',
       name: 'title',
+      title: 'Title',
       type: 'string',
     },
     {
-      title: 'Slug',
       name: 'slug',
+      title: 'Slug',
       type: 'slug',
       options: {
         source: 'title',
@@ -22,8 +21,8 @@ const product: SchemaTypeDefinition = {
       },
     },
     {
-      title: 'Image',
       name: 'image',
+      title: 'Image',
       type: 'array',
       of: [{type: 'image'}],
       options: {
@@ -31,10 +30,10 @@ const product: SchemaTypeDefinition = {
       },
     },
     {
-      title: 'Category',
       name: 'category',
+      title: 'Category',
       type: 'reference',
-      to: [{type: 'product'}],
+      to: [{type: 'category'}],
     },
     {
       name: 'price',
@@ -44,10 +43,7 @@ const product: SchemaTypeDefinition = {
     {
       name: 'description',
       title: 'Description',
-      type: 'array',
-      of: [{type: 'block'}],
+      type: 'blockContent',
     },
   ],
 }
-
-export default product

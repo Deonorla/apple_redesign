@@ -15,6 +15,6 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["**/*.ts", "**/*.tsx", "schemas/product.ts", "schemas/index.ts"],
+  "include": ["**/*.ts", "**/*.tsx", "schemas/product.ts"],
   "exclude": ["node_modules"]
 }

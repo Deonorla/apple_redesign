@@ -23,7 +23,7 @@ interface Props {
 function Success({ products }: Props) {
   // console.log(products);
   const router = useRouter();
-  const { data: session } = useSession();
+  const { session } = useSession;
   const { session_id } = router.query;
   const [mounted, setMounted] = useState(false);
   const [showOrderSummary, setShowOrderSummary] = useState(false);
