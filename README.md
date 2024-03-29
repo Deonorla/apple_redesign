@@ -1,7 +1,3 @@
-## Ecommerce Web site
-
-This is a project for an e-commerce website based on Apple products. Built using Next js, Redux Sanity, and stripe for payment.
-
 
 # Ecommerce App with Next.js, Sanity.io, and NextAuth.js
 
